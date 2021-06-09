@@ -1,28 +1,40 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <el-menu
+      style="opacity: 0.9; margin: 5px"
+      class="el-menu-demo"
+      mode="horizontal"
+      :router="isRouter"
+      background-color="#58A5F5"
+      text-color="#fff"
+      active-text-color="#FFEFBA"
+    >
+      <el-menu-item index="/system">
+        评估体系
+      </el-menu-item>
+      <el-menu-item index="/assess">
+        评估结果
+      </el-menu-item>
+    </el-menu>
+    <transition name="el-fade-in-linear" mode="out-in">
+      <router-view />
+    </transition>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  components: {},
+  data: function() {
+    return {
+      isRouter: true
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
