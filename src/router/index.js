@@ -5,6 +5,11 @@ Vue.use(VueRouter)
 
 const routes = [
   {
+    path: '/',
+    name: 'index',
+    component: () => import('@/views/assess_system')
+  },
+  {
     path: '/system',
     name: 'System',
     component: () => import('@/views/assess_system')

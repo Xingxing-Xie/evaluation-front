@@ -12,28 +12,27 @@
         </el-col>
       </el-row>
     </el-card>
-    <el-row>
-      <el-col :span="14">
+    <el-row style="height: 84vh">
+      <el-col :span="12">
         <el-card class="card">
           <el-row>
             <el-col>
               <h3>指标体系</h3>
             </el-col>
-            <el-col style="height: 101vh">
-              <div ref="minder" style="height: 109vh; width: 200%; position: absolute; left: -45vw" />
+            <el-col style="height: 83vh">
+              <div ref="minder" style="height: 83.8vh; width: 200%; position: absolute; left: -38vw" />
             </el-col>
           </el-row>
         </el-card>
       </el-col>
-      <el-col :span="10">
+      <el-col :span="12">
         <el-card class="card">
           <el-row>
             <el-col>
               <h3>权重集</h3>
             </el-col>
           </el-row>
-
-          <el-table :data="nodes" style="width: 100%;margin-top:10px;" border height="100vh">
+          <el-table :data="nodes" style="width: 100%;margin-top:10px;" border height="82vh">
             <el-table-column align="center" label="指标">
               <template slot-scope="scope">
                 {{ scope.row.name }}
@@ -90,6 +89,8 @@ export default {
       renderTo: this.$refs.minder
     })
     this.minder.importJson(this.system)
+    this.minder.execCommand('Theme', 'fresh-blue-compat')
+    console.log(window.kityminder.Minder.getThemeList())
     getWeights()
       .then((res) => _.forEach(this.nodes, (node) => node.weight1 = parseFloat(res.data[node.id]).toFixed(3)))
   },

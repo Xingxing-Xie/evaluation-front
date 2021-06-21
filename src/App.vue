@@ -8,6 +8,7 @@
       background-color="#58A5F5"
       text-color="#fff"
       active-text-color="#FFEFBA"
+      default-active="/system"
     >
       <el-menu-item index="/system">
         评估体系
